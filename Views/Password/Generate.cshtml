@@ -1,0 +1,18 @@
+@model int
+
+<h2>Generate Password</h2>
+
+<form asp-action="Generate" method="post">
+    <div class="form-group">
+        <label for="length">Password Length</label>
+        <input type="number" id="length" name="length" class="form-control" value="1000" min="1" required />
+        <span asp-validation-for="length" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary ">Generate</button>
+</form>
+
+@if (ViewBag.GeneratedPassword != null)
+{
+    <h3>Generated Password!!</h3>
+    <p>@ViewBag.GeneratedPassword</p>
+}
